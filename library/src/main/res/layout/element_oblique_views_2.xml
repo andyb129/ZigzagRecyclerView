@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/obliqueViewLayout"
+    android:layout_width="match_parent"
+    android:layout_height="260dp"
+    android:paddingBottom="10dp"
+    android:background="@color/oblique_background"
+    android:orientation="horizontal">
+
+    <uk.co.barbuzz.zigzagrecyclerview.obliquecustomview.ObliqueView
+        android:id="@+id/obliqueView"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_weight="1"
+        android:layout_marginRight="@dimen/oblique_negative_margin"
+        android:scaleType="centerCrop"
+        app:starting_slant_angle="90"
+        app:ending_slant_angle="105"
+        app:type="image" />
+
+    <uk.co.barbuzz.zigzagrecyclerview.obliquecustomview.ObliqueView
+        android:id="@+id/obliqueView2"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/oblique_negative_margin"
+        android:scaleType="centerCrop"
+        app:starting_slant_angle="105"
+        app:ending_slant_angle="90"
+        app:type="image" />
+</LinearLayout>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ZigzagRecyclerView</string>
+
+    <string name="action_github">Get it on Github</string>
+    <string name="action_info">Info</string>
+
+    <string name="info_details">This is a sample app for the Zigzag RecyclerView library by Andy Barber. Enjoy!</string>
+    <string name="github_link">https://github.com/andyb129/ZigzagRecyclerView</string>
+</resources>
