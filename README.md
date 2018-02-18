@@ -4,7 +4,7 @@ A library that gives you a slant on the traditional Grid Recycler View!
 
 * Use a traditional RecyclerView (& just apply the ZigzagGridRecyclerViewAdapter)
 * Load list of images from your own objects (implement ZigzagImage)
-* Change the background of the dividers
+* Change the background colour of the dividers
 
 <p>
 <a href="https://play.google.com/store/apps/details?id=uk.co.barbuzz.zigzagrecyclerview.sample"><img src="https://github.com/andyb129/ZigzagRecyclerView/blob/master/screenshots%2Fgoogle_play_badge.png" height="80" width="210" alt="ZigzagRecyclerView"/></a>
@@ -58,7 +58,7 @@ For more detailed code example to use the library, Please refer to the `/sample`
 ```
 
 Make sure your class in the list that your passing into the RecylerView implements the ZigzagImage interface
-(either returning a value for `getImageResourceId()` or `getImageUrl()` depending on how you supply your image data).
+(either returning a value for `getZigzagImageResourceId()` or `getZigzagImageUrl()` depending on how you supply your image data).
 
 `NOTE:` images are loaded by the Picasso library at the moment
 
@@ -95,26 +95,26 @@ zigzagRecyclerView.setLayoutManager(linearLayoutManager);
 zigzagRecyclerView.setAdapter(zigzagGridRecyclerViewAdapter);
 ```
 
-You can also optionally change the separator colour (defaults to white) like this.
+You can also `optionally` change the separator colour (defaults to white) like this.
 
 ```
 zigzagGridRecyclerViewAdapter.setBackgroundColourResId(getResources().getColor(R.color.separator));
 ```
 
 ### TODO
-1. Maybe add a optional label to bottom of image
+1. Add a optional label to bottom of image
 2. Allow change of the separator width
 
 ### Thanks
 
-This library has been made by using the amazing library Oblique below. So huge thanks to the author which this is based on.
+This library has been made by using the amazing library 'Oblique' below. So huge thanks to the author which this is based on.
 
 * Oblique by [akshay2211](https://github.com/akshay2211) - [https://github.com/akshay2211/Oblique](https://github.com/akshay2211/Oblique)
 
 
 ### Licence
 ```
-Copyright (c) 2016 Andy Barber
+Copyright (c) 2018 Andy Barber
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
