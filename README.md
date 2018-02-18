@@ -48,7 +48,7 @@ The library is currently configured to be built via Gradle only. It has the foll
 ### Usage
 For more detailed code example to use the library, Please refer to the `/sample` app.
 
-`ZigzagGridRecyclerViewAdapter` can be used with a standard RecyclerView. Declare the RecyclerView as normal in your layout XML.
+**ZigzagGridRecyclerViewAdapter** can be used with a standard RecyclerView. Declare the RecyclerView as normal in your layout XML.
 
 ```
 <android.support.v7.widget.RecyclerView
@@ -58,9 +58,9 @@ For more detailed code example to use the library, Please refer to the `/sample`
 ```
 
 Make sure your class in the list that your passing into the RecylerView implements the ZigzagImage interface
-(either returning a value for `getZigzagImageResourceId()` or `getZigzagImageUrl()` depending on how you supply your image data).
+(either returning a value for **getZigzagImageResourceId()** or **getZigzagImageUrl()** depending on how you supply your image data).
 
-`NOTE:` images are loaded by the Picasso library at the moment
+**NOTE:** images are loaded by the Picasso library at the moment
 
 ```
 public class SnowImage extends ZigzagImage {
@@ -83,7 +83,7 @@ public class SnowImage extends ZigzagImage {
 }
 ```
 
-Then initialise the `RecyclerView` & `ZigzagGridRecyclerViewAdapter` in your activity as below.
+Then initialise the **RecyclerView** & **ZigzagGridRecyclerViewAdapter** in your activity as below.
 
 ```
 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -95,7 +95,7 @@ zigzagRecyclerView.setLayoutManager(linearLayoutManager);
 zigzagRecyclerView.setAdapter(zigzagGridRecyclerViewAdapter);
 ```
 
-You can also `optionally` change the separator colour (defaults to white) like this.
+You can also **optionally** change the separator colour (defaults to white) like this.
 
 ```
 zigzagGridRecyclerViewAdapter.setBackgroundColourResId(getResources().getColor(R.color.separator));
