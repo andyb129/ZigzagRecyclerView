@@ -7,10 +7,10 @@ import uk.co.barbuzz.zigzagrecyclerview.ZigzagImage;
  */
 public class SnowImage extends ZigzagImage {
 
-    private int spaceImageResourceId;
+    private int snowImageResourceId;
 
-    public SnowImage(int spaceImageResourceId) {
-        this.spaceImageResourceId = spaceImageResourceId;
+    public SnowImage(int snowImageResourceId) {
+        this.snowImageResourceId = snowImageResourceId;
     }
 
     @Override
@@ -20,6 +20,6 @@ public class SnowImage extends ZigzagImage {
 
     @Override
     protected int getZigzagImageResourceId() {
-        return spaceImageResourceId;
+        return snowImageResourceId;
     }
 }

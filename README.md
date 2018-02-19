@@ -65,10 +65,10 @@ Make sure your class in the list that your passing into the RecylerView implemen
 ```
 public class SnowImage extends ZigzagImage {
 
-    private int spaceImageResourceId;
+    private int snowImageResourceId;
 
-    public SnowImage(int spaceImageResourceId) {
-        this.spaceImageResourceId = spaceImageResourceId;
+    public SnowImage(int snowImageResourceId) {
+        this.snowImageResourceId = snowImageResourceId;
     }
 
     @Override
@@ -78,7 +78,7 @@ public class SnowImage extends ZigzagImage {
 
     @Override
     protected int getZigzagImageResourceId() {
-        return spaceImageResourceId;
+        return snowImageResourceId;
     }
 }
 ```
