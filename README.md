@@ -30,7 +30,7 @@ dependencies {
 <dependency>
   <groupId>uk.co.barbuzz.zigzagrecyclerviewadapter</groupId>
   <artifactId>zigzagrecyclerview</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <type>pom</type>
 </dependency>
 ```
