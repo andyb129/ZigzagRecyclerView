@@ -4,9 +4,9 @@ package uk.co.barbuzz.zigzagrecyclerview;
  * Created by andy.barber on 30/01/2018.
  */
 
-public abstract class ZigzagImage {
+public interface ZigzagImage {
 
-    protected abstract String getZigzagImageUrl();
+    String getZigzagImageUrl();
 
-    protected abstract int getZigzagImageResourceId();
+    int getZigzagImageResourceId();
 }

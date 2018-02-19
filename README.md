@@ -21,7 +21,7 @@ To use **Zigzag Recycler View** in your projects, simply add the library as a de
 ##### Gradle
 ```
 dependencies {
-  implementation 'uk.co.barbuzz:zigzagrecyclerview:0.0.1'
+  implementation 'uk.co.barbuzz:zigzagrecyclerview:0.0.2'
 }
 ```
 
@@ -63,7 +63,7 @@ Make sure your class in the list that your passing into the RecylerView implemen
 **NOTE:** images are loaded by the Picasso library at the moment
 
 ```
-public class SnowImage extends ZigzagImage {
+public class SnowImage implements ZigzagImage {
 
     private int snowImageResourceId;
 
@@ -72,12 +72,12 @@ public class SnowImage extends ZigzagImage {
     }
 
     @Override
-    protected String getZigzagImageUrl() {
+    public String getZigzagImageUrl() {
         return null;
     }
 
     @Override
-    protected int getZigzagImageResourceId() {
+    public int getZigzagImageResourceId() {
         return snowImageResourceId;
     }
 }

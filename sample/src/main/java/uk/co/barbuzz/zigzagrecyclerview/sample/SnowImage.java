@@ -5,7 +5,7 @@ import uk.co.barbuzz.zigzagrecyclerview.ZigzagImage;
 /**
  * Created by andy.barber on 13/02/2018.
  */
-public class SnowImage extends ZigzagImage {
+public class SnowImage implements ZigzagImage {
 
     private int snowImageResourceId;
 
@@ -14,12 +14,12 @@ public class SnowImage extends ZigzagImage {
     }
 
     @Override
-    protected String getZigzagImageUrl() {
+    public String getZigzagImageUrl() {
         return null;
     }
 
     @Override
-    protected int getZigzagImageResourceId() {
+    public int getZigzagImageResourceId() {
         return snowImageResourceId;
     }
 }
