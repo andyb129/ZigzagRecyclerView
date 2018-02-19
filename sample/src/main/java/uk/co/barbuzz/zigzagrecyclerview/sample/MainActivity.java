@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onImageClicked(int position, ZigzagImage zigzagImage) {
+    public void onZigzagImageClicked(int position, ZigzagImage zigzagImage) {
         Snackbar.make(findViewById(android.R.id.content),
                 "Tapped on image " + position, Snackbar.LENGTH_LONG).show();
     }
@@ -116,7 +116,9 @@ public class MainActivity extends AppCompatActivity
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         ZigzagGridRecyclerViewAdapter zigzagGridRecyclerViewAdapter
                 = new ZigzagGridRecyclerViewAdapter(this, imageList, this);
+
         zigzagGridRecyclerViewAdapter.setBackgroundColourResId(getResources().getColor(R.color.separator));
+        zigzagGridRecyclerViewAdapter.setPlaceholderDrawableResId(R.drawable.placeholder_image);
 
         RecyclerView zigzagRecyclerView = findViewById(R.id.zigzag_recycler_view);
         zigzagRecyclerView.setLayoutManager(linearLayoutManager);

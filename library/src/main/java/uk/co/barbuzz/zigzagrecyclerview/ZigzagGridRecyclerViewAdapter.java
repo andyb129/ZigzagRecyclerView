@@ -1,7 +1,6 @@
 package uk.co.barbuzz.zigzagrecyclerview;
 
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,20 +18,20 @@ public class ZigzagGridRecyclerViewAdapter extends RecyclerView.Adapter<Recycler
     private static final int IMAGE_VIEW_EVEN_TYPE = 0;
     private static final int IMAGE_VIEW_ODD_TYPE = 1;
 
-    private List<ZigzagImage> photoList = new ArrayList<>();
+    private List<? extends ZigzagImage> zigzagImageList = new ArrayList<>();
     private Context context;
     private ZigzagListOnClickListener zigzagListOnClickListener;
     private int backgroundColourResId;
-    private ColorDrawable blankDrawable;
+    private int placeholderDrawableResId;
 
     public interface ZigzagListOnClickListener {
-        void onImageClicked(int position, ZigzagImage photo);
+        void onZigzagImageClicked(int position, ZigzagImage zigzagImage);
     }
 
-    public ZigzagGridRecyclerViewAdapter(Context context, List<ZigzagImage> photoList,
+    public ZigzagGridRecyclerViewAdapter(Context context, List<? extends ZigzagImage> zigzagImageList,
                                          ZigzagListOnClickListener zigzagListOnClickListener) {
         this.context = context;
-        this.photoList = photoList;
+        this.zigzagImageList = zigzagImageList;
         this.zigzagListOnClickListener = zigzagListOnClickListener;
         backgroundColourResId = context.getResources().getColor(R.color.oblique_background);
     }
@@ -63,41 +62,37 @@ public class ZigzagGridRecyclerViewAdapter extends RecyclerView.Adapter<Recycler
 
         //load first image
         int pos1 = position + position;
-        final ZigzagImage zigzagImage1 = photoList.get(pos1);
+        final ZigzagImage zigzagImage1 = zigzagImageList.get(pos1);
         String imageUrl1 = zigzagImage1.getZigzagImageUrl();
         if (imageUrl1 == null || imageUrl1.trim().equalsIgnoreCase("")) {
             int imageResource1 = zigzagImage1.getZigzagImageResourceId();
-            Picasso.with(context).load(imageResource1)
-                    .into(imageViewHolder.obliqueView1);
+            loadImageResource(imageResource1, imageViewHolder.obliqueView1);
         } else {
-            Picasso.with(context).load(imageUrl1)
-                    .into(imageViewHolder.obliqueView1);
+            loadImageResourceUrl(imageUrl1, imageViewHolder.obliqueView1);
         }
         imageViewHolder.obliqueView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                zigzagListOnClickListener.onImageClicked(position, zigzagImage1);
+                zigzagListOnClickListener.onZigzagImageClicked(position, zigzagImage1);
             }
         });
 
         //load second image if need as we might have odd number in list
         int secondImagePos = pos1 + 1;
-        if (secondImagePos < photoList.size()) {
-            final ZigzagImage zigzagImage2 = photoList.get(secondImagePos);
+        if (secondImagePos < zigzagImageList.size()) {
+            final ZigzagImage zigzagImage2 = zigzagImageList.get(secondImagePos);
             if (zigzagImage2 != null) {
                 String imageUrl2 = zigzagImage2.getZigzagImageUrl();
                 if (imageUrl1 == null || imageUrl1.trim().equalsIgnoreCase("")) {
                     int imageResource2 = zigzagImage2.getZigzagImageResourceId();
-                    Picasso.with(context).load(imageResource2)
-                            .into(imageViewHolder.obliqueView2);
+                    loadImageResource(imageResource2, imageViewHolder.obliqueView2);
                 } else {
-                    Picasso.with(context).load(imageUrl2)
-                            .into(imageViewHolder.obliqueView2);
+                    loadImageResourceUrl(imageUrl2, imageViewHolder.obliqueView2);
                 }
                 imageViewHolder.obliqueView2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        zigzagListOnClickListener.onImageClicked(position, zigzagImage2);
+                        zigzagListOnClickListener.onZigzagImageClicked(position, zigzagImage2);
                     }
                 });
             }
@@ -108,19 +103,56 @@ public class ZigzagGridRecyclerViewAdapter extends RecyclerView.Adapter<Recycler
 
     @Override
     public int getItemCount() {
-        float size = photoList.size();
+        float size = zigzagImageList.size();
         int count = Math.round(size / 2);
         return count;
     }
 
-    public void addData(List<ZigzagImage> photoList) {
-        this.photoList = photoList;
+    private void loadImageResource(int imageResource, ImageView obliqueView) {
+        if (placeholderDrawableResId==0) {
+            Picasso.with(context).load(imageResource)
+                    .into(obliqueView);
+        } else {
+            Picasso.with(context).load(imageResource)
+                    .placeholder(placeholderDrawableResId)
+                    .into(obliqueView);
+        }
+    }
+
+    private void loadImageResourceUrl(String imageUrlString, ImageView obliqueView) {
+        if (placeholderDrawableResId==0) {
+            Picasso.with(context).load(imageUrlString)
+                    .into(obliqueView);
+        } else {
+            Picasso.with(context).load(imageUrlString)
+                    .placeholder(placeholderDrawableResId)
+                    .into(obliqueView);
+        }
+    }
+
+    public void setData(List<? extends ZigzagImage> zigzagImageList) {
+        this.zigzagImageList = zigzagImageList;
         notifyDataSetChanged();
+    }
+
+    public List<? extends ZigzagImage> getData() {
+        return zigzagImageList;
+    }
+
+    public ZigzagListOnClickListener getZigzagListOnClickListener() {
+        return zigzagListOnClickListener;
+    }
+
+    public void setZigzagListOnClickListener(ZigzagListOnClickListener zigzagListOnClickListener) {
+        this.zigzagListOnClickListener = zigzagListOnClickListener;
     }
 
     public void setBackgroundColourResId(int backgroundColourResId) {
         this.backgroundColourResId = backgroundColourResId;
-        blankDrawable = new ColorDrawable(backgroundColourResId);
+    }
+
+    public void setPlaceholderDrawableResId(int placeholderDrawableResId) {
+        this.placeholderDrawableResId = placeholderDrawableResId;
     }
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {

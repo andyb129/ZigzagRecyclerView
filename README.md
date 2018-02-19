@@ -21,7 +21,7 @@ To use **Zigzag Recycler View** in your projects, simply add the library as a de
 ##### Gradle
 ```
 dependencies {
-  implementation 'uk.co.barbuzz:zigzagrecyclerview:0.0.2'
+  implementation 'uk.co.barbuzz:zigzagrecyclerview:0.0.3'
 }
 ```
 
@@ -30,7 +30,7 @@ dependencies {
 <dependency>
   <groupId>uk.co.barbuzz.zigzagrecyclerviewadapter</groupId>
   <artifactId>zigzagrecyclerview</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.3</version>
   <type>pom</type>
 </dependency>
 ```
@@ -95,10 +95,24 @@ zigzagRecyclerView.setLayoutManager(linearLayoutManager);
 zigzagRecyclerView.setAdapter(zigzagGridRecyclerViewAdapter);
 ```
 
-You can also **optionally** change the separator colour (defaults to white) like this.
+You can also **optionally** change the separator colour (defaults to white) or add a placeholder drawable resource for image loading.
 
 ```
 zigzagGridRecyclerViewAdapter.setBackgroundColourResId(getResources().getColor(R.color.separator));
+
+zigzagGridRecyclerViewAdapter.setPlaceholderDrawableResId(R.drawable.placeholder_image);
+```
+
+There is also an ZigzagListOnClickListener that can be implemented to define the behaviour when an image is clicked. Either add it as part of
+the Adapter constructor (see above) or declare separably as below.
+
+```
+zigzagGridRecyclerViewAdapter.setZigzagListOnClickListener(new ZigzagGridRecyclerViewAdapter.ZigzagListOnClickListener() {
+            @Override
+            public void onZigzagImageClicked(int position, ZigzagImage zigzagImage) {
+                //onClick behaviour here
+            }
+        });
 ```
 
 ### TODO
