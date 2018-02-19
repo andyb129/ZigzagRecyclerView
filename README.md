@@ -21,7 +21,7 @@ To use **Zigzag Recycler View** in your projects, simply add the library as a de
 ##### Gradle
 ```
 dependencies {
-  compile 'uk.co.barbuzz:zigzagrecyclerview:0.0.1'
+  implementation 'uk.co.barbuzz:zigzagrecyclerview:0.0.1'
 }
 ```
 
