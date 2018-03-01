@@ -1,5 +1,7 @@
 # Zigzag Recycler View
 
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Zigzag%20Recycler%20View-green.svg?style=flat )]( https://android-arsenal.com/details/1/6794 )
+
 A library that gives you a slant on the traditional Grid Recycler View!
 
 * Use a traditional RecyclerView (& just apply the ZigzagGridRecyclerViewAdapter)
