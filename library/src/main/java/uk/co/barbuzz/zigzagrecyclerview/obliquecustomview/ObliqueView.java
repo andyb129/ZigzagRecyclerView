@@ -23,8 +23,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.FloatRange;
-import android.support.v4.view.ViewCompat;
+import androidx.annotation.FloatRange;
+import androidx.core.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -33,7 +33,7 @@ import android.widget.ImageView;
 
 import static android.graphics.Paint.ANTI_ALIAS_FLAG;
 
-public class ObliqueView extends android.support.v7.widget.AppCompatImageView {
+public class ObliqueView extends androidx.appcompat.widget.AppCompatImageView {
 
     //Variables
     private Path shadowpath, path;
