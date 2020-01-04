@@ -1,9 +1,8 @@
-package uk.co.barbuzz.zigzagrecyclerview.obliquecustomview;
+package uk.co.barbuzz.zigzagrecyclerview.obliquecustomview
 
 /**
  * Created by akshay on 10/9/17.
  */
-
-public enum Type {
+enum class Type {
     IMAGE, LINEAR_GRADIENT, RADIAL_GRADIENT, SOLID_COLOR
 }

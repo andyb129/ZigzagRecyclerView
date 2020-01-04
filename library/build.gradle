@@ -1,11 +1,13 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 apply from: 'maven-push.gradle'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 29
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
@@ -25,6 +27,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
